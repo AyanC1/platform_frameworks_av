@@ -408,10 +408,10 @@ void AudioPolicyService::doReleaseOutput(audio_port_handle_t portId)
         Mutex::Autolock _l(mLock);
         mAudioPlaybackClients.removeItem(portId);
 
-        audioPolicyEffects = mAudioPolicyEffects;
+    audioPolicyEffects = mAudioPolicyEffects;
 
-        // called from internal thread: no need to clear caller identity
-        mAudioPolicyManager->releaseOutput(portId);
+    // called from internal thread: no need to clear caller identity
+    mAudioPolicyManager->releaseOutput(portId);
     }
 
     if (audioPolicyEffects != 0) {
